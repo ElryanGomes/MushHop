@@ -67,6 +67,12 @@ position = Vector2(1, -45)
 [node name="parede_invisiveis_mob" parent="parede_mob" instance=ExtResource("5_kjkl5")]
 position = Vector2(299, 160)
 
+[node name="parede_invisiveis_mob9" parent="parede_mob" instance=ExtResource("5_kjkl5")]
+position = Vector2(216, 159)
+
+[node name="parede_invisiveis_mob10" parent="parede_mob" instance=ExtResource("5_kjkl5")]
+position = Vector2(8, 156)
+
 [node name="parede_invisiveis_mob2" parent="parede_mob" instance=ExtResource("5_kjkl5")]
 position = Vector2(407, 161)
 
@@ -253,7 +259,7 @@ centered = false
 
 [node name="sign" type="Area2D" parent="." groups=["signs"]]
 unique_name_in_owner = true
-position = Vector2(129, 168)
+position = Vector2(119, 168)
 script = ExtResource("21_hohr6")
 messages = Array[String](["[E] Para Interagir", "Nessa fase você conhecerá outro predador dos fungos", "A lesma!!", "As lesmas são mais lentas porém tem mais vida", "Além de dá mais score.", "As formigas estão mais rápidas, mas dão  mais pontos", "Se divirta!!"])
 
@@ -289,6 +295,6 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="checkpoint_mushroom" parent="." instance=ExtResource("24_7jepg")]
-position = Vector2(48.000004, 143)
+position = Vector2(49.999996, 160)
 
 [editable path="LevelEnd"]

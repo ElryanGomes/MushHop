@@ -68,36 +68,62 @@ position = Vector2(1, -45)
 
 [node name="skeleton" parent="inimigos" instance=ExtResource("10_yq8tf")]
 position = Vector2(271, 121.00001)
+SPEED = 3000
+enemy_score = 200
 
 [node name="skeleton2" parent="inimigos" instance=ExtResource("10_yq8tf")]
 position = Vector2(367, 121)
+SPEED = 3000
+enemy_score = 200
 
 [node name="skeleton3" parent="inimigos" instance=ExtResource("10_yq8tf")]
 position = Vector2(413, 185)
+SPEED = 3000
+enemy_score = 200
 
 [node name="skeleton4" parent="inimigos" instance=ExtResource("10_yq8tf")]
 position = Vector2(241, 42)
+SPEED = 3000
+enemy_score = 200
 
 [node name="skeleton5" parent="inimigos" instance=ExtResource("10_yq8tf")]
 position = Vector2(586, 116)
+SPEED = 3000
+enemy_score = 200
 
 [node name="skeleton6" parent="inimigos" instance=ExtResource("10_yq8tf")]
 position = Vector2(15, 43)
+SPEED = 3000
+enemy_score = 200
 
 [node name="skeleton7" parent="inimigos" instance=ExtResource("10_yq8tf")]
 position = Vector2(51.000004, 39)
+SPEED = 3000
+enemy_score = 200
 
 [node name="skeleton8" parent="inimigos" instance=ExtResource("10_yq8tf")]
 position = Vector2(91, 42)
+SPEED = 3000
+enemy_score = 200
 
 [node name="skeleton9" parent="inimigos" instance=ExtResource("10_yq8tf")]
 position = Vector2(132, 41)
+SPEED = 3000
+enemy_score = 200
 
 [node name="skeleton10" parent="inimigos" instance=ExtResource("10_yq8tf")]
 position = Vector2(198, 40)
+SPEED = 3000
+enemy_score = 200
 
 [node name="lesma" parent="inimigos" instance=ExtResource("7_jhlss")]
 position = Vector2(463, 183)
+
+[node name="lesma2" parent="inimigos" instance=ExtResource("7_jhlss")]
+position = Vector2(318, 121)
+
+[node name="lesma3" parent="inimigos" instance=ExtResource("7_jhlss")]
+position = Vector2(113, 39)
 
 [node name="itens" type="Node" parent="."]
 
@@ -155,7 +181,7 @@ texture = ExtResource("16_0lu6w")
 unique_name_in_owner = true
 position = Vector2(85, 168)
 script = ExtResource("16_ux4dc")
-messages = Array[String](["test", "22"])
+messages = Array[String](["EM BREVE...", "Chefão Formigatrix"])
 
 [node name="collision" type="CollisionShape2D" parent="sign"]
 shape = SubResource("RectangleShape2D_ww6yf")
@@ -189,4 +215,4 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="checkpoint_mushroom" parent="." instance=ExtResource("21_ww6yf")]
-position = Vector2(47, 142)
+position = Vector2(39, 160)

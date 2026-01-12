@@ -1,8 +1,12 @@
 extends Area2D
 
 @onready var anim: AnimatedSprite2D = $anim
+@onready var audio: AudioStreamPlayer = $audio
 
 var activated := false
+
+func _ready() -> void:
+	anim.play("idle")
 
 func _on_body_entered(body: Node2D) -> void:
 	if activated:
@@ -18,6 +22,7 @@ func _on_body_entered(body: Node2D) -> void:
 		Globals.checkpoint_water = Globals.water
 		Globals.checkpoint_lifes = Globals.player_lifes
 
-		anim.play("explosion1")
+		anim.play("explosion3")
+		audio.play()
 		await anim.animation_finished
 		queue_free()
