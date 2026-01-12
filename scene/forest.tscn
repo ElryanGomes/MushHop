@@ -1,0 +1,324 @@
+[gd_scene load_steps=30 format=4 uid="uid://c7wjjfb3fjxkg"]
+
+[ext_resource type="PackedScene" uid="uid://depodrve142og" path="res://entities/player.tscn" id="1_e2knd"]
+[ext_resource type="Script" uid="uid://lrw6lj4g0xkx" path="res://scripts/forest.gd" id="1_ja8kk"]
+[ext_resource type="TileSet" uid="uid://dimks3lrxx581" path="res://tiles/Terrain.tres" id="2_2xpkg"]
+[ext_resource type="Texture2D" uid="uid://b6vcmsm3mvk01" path="res://sprites/Blocos/2 - Autumn Forest/Background parts/6 - Distant_trees.png" id="3_gbfvw"]
+[ext_resource type="TileSet" uid="uid://bxlswegjgafqt" path="res://tiles/Decoration.tres" id="4_gwku7"]
+[ext_resource type="Texture2D" uid="uid://c64egkrvroro5" path="res://sprites/Blocos/2 - Autumn Forest/Background parts/5 - Tree_row_BG_2.png" id="4_qxlj4"]
+[ext_resource type="Texture2D" uid="uid://cv640fpoqohrb" path="res://sprites/Blocos/2 - Autumn Forest/Background parts/4 - Tree_row_BG_1.png" id="5_jo4av"]
+[ext_resource type="Texture2D" uid="uid://chno1c3utr58e" path="res://sprites/Blocos/2 - Autumn Forest/Background parts/3 - Bottom_leaf_piles.png" id="6_jxvlp"]
+[ext_resource type="Texture2D" uid="uid://y8per33sffdt" path="res://sprites/Blocos/2 - Autumn Forest/Background parts/2 - Trees.png" id="7_gwku7"]
+[ext_resource type="Texture2D" uid="uid://inu7qctg8h6a" path="res://sprites/Blocos/2 - Autumn Forest/Background parts/1 - Leaf_top.png" id="8_64es3"]
+[ext_resource type="PackedScene" uid="uid://c2dv7jj43u4ky" path="res://entities/camera.tscn" id="9_jo4av"]
+[ext_resource type="PackedScene" uid="uid://b1cpskgkhcpjk" path="res://entities/cogumelo_cura.tscn" id="9_un5na"]
+[ext_resource type="Texture2D" uid="uid://bdx4srxdiueqw" path="res://sprites/Blocos/2 - Autumn Forest/Terrain (16 x 16).png" id="10_jxvlp"]
+[ext_resource type="PackedScene" uid="uid://cmklj54srdl1h" path="res://entities/level_end.tscn" id="12_64es3"]
+[ext_resource type="PackedScene" uid="uid://d3f3fygaadekl" path="res://entities/cogumelo_nausea.tscn" id="13_kmspj"]
+[ext_resource type="PackedScene" uid="uid://bspu4ddxo1d0d" path="res://entities/paredes_invisiveis.tscn" id="15_0xhum"]
+[ext_resource type="PackedScene" uid="uid://c8duox5j3j38k" path="res://entities/skeleton.tscn" id="16_p7yhu"]
+[ext_resource type="PackedScene" uid="uid://e3hqbotp1141" path="res://entities/paredes_inivisiveis_mapa.tscn" id="18_cwbpd"]
+[ext_resource type="PackedScene" uid="uid://cfm1jrpt34jnu" path="res://entities/water.tscn" id="19_ysu3w"]
+[ext_resource type="PackedScene" uid="uid://w85h3vehm2j0" path="res://scene/pause_menu.tscn" id="20_dki5c"]
+[ext_resource type="PackedScene" uid="uid://dxecidowu1anj" path="res://scene/hud.tscn" id="21_cvgm6"]
+[ext_resource type="AudioStream" uid="uid://bbu1w1s0vwgj6" path="res://sounds/the_last_of_us_sound.mp3" id="22_kuygm"]
+[ext_resource type="Texture2D" uid="uid://b1oxibsu3b846" path="res://sprites/hud/placa.png" id="23_bqdkd"]
+[ext_resource type="Script" uid="uid://yesbcxxkfyfx" path="res://scripts/sign.gd" id="23_un5na"]
+[ext_resource type="FontFile" uid="uid://wsuwgtp1mwmv" path="res://sprites/hud/RevMiniPixel.ttf" id="24_un5na"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jxvlp"]
+texture = ExtResource("10_jxvlp")
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+11:1/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+11:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+15:3/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+11:4/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+11:5/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+4:8/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_gwku7"]
+sources/0 = SubResource("TileSetAtlasSource_jxvlp")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kmspj"]
+size = Vector2(20, 188)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mab7"]
+size = Vector2(26, 20)
+
+[node name="Forest" type="Node2D"]
+script = ExtResource("1_ja8kk")
+
+[node name="Player" parent="." instance=ExtResource("1_e2knd")]
+position = Vector2(24, 178)
+
+[node name="Camera" parent="." instance=ExtResource("9_jo4av")]
+position = Vector2(18, -3)
+limit_top = 1
+limit_right = 1035
+limit_bottom = 208
+
+[node name="paredes_mapa" type="Node" parent="."]
+
+[node name="paredes_inivisiveis_mapa" parent="paredes_mapa" instance=ExtResource("18_cwbpd")]
+position = Vector2(1, -45)
+
+[node name="parede_mob" type="Node" parent="."]
+
+[node name="parede_invisiveis_mob" parent="parede_mob" instance=ExtResource("15_0xhum")]
+position = Vector2(119, 120)
+
+[node name="parede_invisiveis_mob2" parent="parede_mob" instance=ExtResource("15_0xhum")]
+position = Vector2(168, 123)
+
+[node name="parede_invisiveis_mob3" parent="parede_mob" instance=ExtResource("15_0xhum")]
+position = Vector2(367, 80)
+
+[node name="parede_invisiveis_mob4" parent="parede_mob" instance=ExtResource("15_0xhum")]
+position = Vector2(500, 74)
+
+[node name="parede_invisiveis_mob5" parent="parede_mob" instance=ExtResource("15_0xhum")]
+position = Vector2(1045, 159)
+
+[node name="parede_invisiveis_mob6" parent="parede_mob" instance=ExtResource("15_0xhum")]
+position = Vector2(498, 158)
+
+[node name="inimigos" type="Node" parent="."]
+
+[node name="skeleton" parent="inimigos" instance=ExtResource("16_p7yhu")]
+position = Vector2(131, 134)
+
+[node name="skeleton7" parent="inimigos" instance=ExtResource("16_p7yhu")]
+position = Vector2(276, 187)
+
+[node name="skeleton2" parent="inimigos" instance=ExtResource("16_p7yhu")]
+position = Vector2(379, 90)
+
+[node name="skeleton3" parent="inimigos" instance=ExtResource("16_p7yhu")]
+position = Vector2(477, 92)
+
+[node name="skeleton4" parent="inimigos" instance=ExtResource("16_p7yhu")]
+position = Vector2(504, 185)
+
+[node name="skeleton8" parent="inimigos" instance=ExtResource("16_p7yhu")]
+position = Vector2(642, 186)
+
+[node name="skeleton5" parent="inimigos" instance=ExtResource("16_p7yhu")]
+position = Vector2(1020, 188)
+
+[node name="skeleton6" parent="inimigos" instance=ExtResource("16_p7yhu")]
+position = Vector2(840, 185)
+
+[node name="itens" type="Node" parent="."]
+
+[node name="waters" type="Node" parent="itens"]
+
+[node name="water" parent="itens/waters" instance=ExtResource("19_ysu3w")]
+position = Vector2(275, 184)
+
+[node name="water2" parent="itens/waters" instance=ExtResource("19_ysu3w")]
+position = Vector2(242, 184)
+
+[node name="water3" parent="itens/waters" instance=ExtResource("19_ysu3w")]
+position = Vector2(208, 184)
+
+[node name="water4" parent="itens/waters" instance=ExtResource("19_ysu3w")]
+position = Vector2(247, 57)
+
+[node name="water5" parent="itens/waters" instance=ExtResource("19_ysu3w")]
+position = Vector2(528, 136)
+
+[node name="water6" parent="itens/waters" instance=ExtResource("19_ysu3w")]
+position = Vector2(584, 128)
+
+[node name="water7" parent="itens/waters" instance=ExtResource("19_ysu3w")]
+position = Vector2(758, 122)
+
+[node name="water8" parent="itens/waters" instance=ExtResource("19_ysu3w")]
+position = Vector2(757, 104)
+
+[node name="water9" parent="itens/waters" instance=ExtResource("19_ysu3w")]
+position = Vector2(756, 83)
+
+[node name="water10" parent="itens/waters" instance=ExtResource("19_ysu3w")]
+position = Vector2(509, 186)
+
+[node name="cogumelos" type="Node" parent="itens"]
+
+[node name="Cogumelo Nausea" parent="itens/cogumelos" instance=ExtResource("13_kmspj")]
+position = Vector2(184, 85)
+
+[node name="cogumelo_cura" parent="itens/cogumelos" instance=ExtResource("9_un5na")]
+position = Vector2(422, 175)
+
+[node name="TileMaps" type="Node" parent="."]
+
+[node name="Terrain" type="TileMapLayer" parent="TileMaps"]
+z_index = 2
+tile_map_data = PackedByteArray("AAD//wwAAQACAAMAAAAAAAwAAQACAAMAAAABAAwAAQACAAMAAAACAAwAAQACAAMAAAADAAwAAQACAAMAAAAEAAwAAQACAAMAAAAFAAwAAQACAAMAAAAGAAwAAQACAAMAAAAJAAwAAQACAAMAAAAKAAwAAQACAAMAAAALAAwAAQACAAMAAAAMAAwAAQACAAMAAAANAAwAAQACAAMAAAAOAAwAAQACAAMAAAAPAAwAAQACAAMAAAAQAAwAAQACAAMAAAARAAwAAQACAAMAAAASAAwAAQADAAMAAAATAAwAAQAEAAUAAAAUAAwAAQAEAAUAAAAVAAwAAQAEAAUAAAAWAAwAAQAEAAUAAAAXAAwAAQAEAAUAAAAYAAwAAQAFAAMAAAAZAAwAAQACAAMAAAAaAAwAAQACAAMAAAAbAAwAAQACAAMAAAAcAAwAAQADAAMAAAAdAAwAAQAEAAUAAAAeAAwAAQAFAAMAAAAfAAwAAQACAAMAAAAgAAwAAQACAAMAAAAhAAwAAQACAAMAAAAiAAwAAQACAAMAAAAjAAwAAQACAAMAAAAkAAwAAQACAAMAAAAlAAwAAQACAAMAAAAmAAwAAQACAAMAAAAnAAwAAQACAAMAAAAoAAwAAQACAAMAAAApAAwAAQACAAMAAAAqAAwAAQADAAMAAAArAAwAAQAEAAIAAAAsAAwAAQAEAAIAAAAtAAwAAQAEAAIAAAAuAAwAAQAEAAIAAAAvAAwAAQAEAAQAAAAwAAwAAQAEAAQAAAAeAAsAAQAFAAUAAAASAAoAAQADAAUAAAASAAsAAQADAAUAAAAWAAsAAQAEAAQAAAAWAAoAAQAEAAQAAAAVAAoAAQAEAAQAAAAUAAoAAQAEAAQAAAATAAoAAQAEAAQAAAATAAsAAQAEAAQAAAAUAAsAAQAEAAQAAAAVAAsAAQAEAAQAAAAXAAoAAQAEAAQAAAAXAAsAAQAEAAQAAAAYAAsAAQAFAAUAAAAYAAoAAQAFAAUAAAAcAAsAAQADAAUAAAAdAAsAAQAEAAQAAAAUAAgAAQADAAMAAAAVAAgAAQAEAAQAAAAWAAcAAQADAAMAAAAWAAgAAQAEAAQAAAAXAAcAAQAEAAQAAAAXAAgAAQAEAAQAAAAYAAcAAQAEAAQAAAAYAAgAAQAEAAQAAAAZAAcAAQAEAAQAAAAaAAcAAQAEAAQAAAAbAAcAAQAEAAQAAAAcAAcAAQAEAAQAAAAdAAcAAQAEAAQAAAAeAAcAAQAFAAUAAAASAAgAAQABAAMAAAATAAgAAQACAAMAAAAUAAcAAQABAAMAAAAVAAcAAQACAAMAAAAWAAYAAQABAAMAAAAXAAYAAQACAAMAAAAYAAYAAQACAAMAAAAZAAYAAQACAAMAAAAaAAYAAQACAAMAAAAbAAYAAQACAAMAAAAcAAYAAQACAAMAAAAdAAYAAQACAAMAAAAeAAYAAQAHAAMAAAASAAkAAQADAAUAAAATAAkAAQAEAAQAAAAUAAkAAQAEAAQAAAAVAAkAAQAEAAQAAAAWAAkAAQAEAAQAAAAXAAkAAQAEAAQAAAAYAAkAAQAFAAUAAAAZAAgAAQADAAUAAGAaAAgAAQADAAUAAGAbAAgAAQADAAUAAGAeAAgAAQAFAAUAAAAdAAgAAQAEAAQAAAAcAAgAAQAEAAQAAAAxAAwAAQAFAAMAAAAyAAwAAQACAAMAAAAzAAwAAQACAAMAAAA0AAwAAQACAAMAAAA1AAwAAQACAAMAAAA2AAwAAQACAAMAAAA3AAwAAQACAAMAAAA4AAwAAQACAAMAAAA5AAwAAQACAAMAAAA6AAwAAQACAAMAAAA7AAwAAQACAAMAAAA8AAwAAQACAAMAAAA9AAwAAQACAAMAAAA+AAwAAQACAAMAAAA/AAwAAQACAAMAAABAAAwAAQACAAMAAABBAAwAAQACAAMAAABCAAwAAQACAAMAAABDAAwAAQACAAMAAAAgAAkAAQAJAAMAAAAhAAkAAQANAAMAAAAHAAwAAQACAAMAAAAIAAwAAQACAAMAAAApAAsAAQABAAMAAAAqAAsAAQACAAMAAAArAAoAAQABAAMAAAAsAAoAAQACAAMAAAAtAAoAAQACAAMAAAAuAAkAAQABAAMAAAAvAAkAAQACAAMAAAAwAAkAAQAHAAMAAAAxAAoAAQAGAAMAAAAyAAoAAQAHAAMAAAAyAAsAAQAFAAUAAAArAAsAAQADAAMAAAAwAAoAAQAFAAMAAAAuAAoAAQADAAMAAAAsAAsAAQAEAAMAAAAtAAsAAQAEAAMAAAAuAAsAAQAEAAMAAAAvAAoAAQAEAAMAAAAvAAsAAQAEAAMAAAAwAAsAAQAEAAMAAAAxAAsAAQAEAAMAAAAHAAkAAQAJAAMAAAAIAAkAAQAKAAMAAAAJAAkAAQANAAMAAAAKAAYAAQAJAAMAAAALAAYAAQAKAAMAAAAMAAYAAQANAAMAAAAOAAQAAQAJAAMAAAAPAAQAAQAKAAMAAAAQAAQAAQANAAMAAAA=")
+tile_set = ExtResource("2_2xpkg")
+metadata/_edit_group_ = true
+
+[node name="FakeTerrain" type="TileMapLayer" parent="TileMaps"]
+z_index = 2
+tile_map_data = PackedByteArray("AAAcAAkAAAADAAUAAAAeAAkAAAAFAAUAAAAdAAkAAAAEAAUAAAAdAAoAAAAEAAMAAAAcAAoAAAADAAUAAAAeAAoAAAAFAAUAAAA=")
+tile_set = SubResource("TileSet_gwku7")
+
+[node name="Decoration" type="TileMapLayer" parent="TileMaps"]
+tile_map_data = PackedByteArray("AAAGAAsABAABAAUAAAANAAsABAADAAUAAAAOAAsABAADAAUAAAAbAAUABAADAAUAAAAcAAUABAADAAUAAAAtAAoABAABAAEAAAAsAAsABAADAAUAAAAuAAsABAADAAUAAAAzAAsABAABAAUAAAA2AAsABAADAAUAAAA7AAsABAAQAAEAAAA6AAsABAAPAAEAAAA8AAsABAARAAEAAAA/AAsAAAADAAUAAAAsAAkABAABAAUAAAAxAAkABAADAAUAAAAhAAsABAADAAUAAAAiAAsABAADAAUAAAAjAAoABAABAAEAAAA9AAoABAABAAEAAAA=")
+tile_set = ExtResource("4_gwku7")
+
+[node name="LevelEnd" parent="." instance=ExtResource("12_64es3")]
+position = Vector2(1036, 173)
+Next_Level = "tropic"
+
+[node name="CollisionShape2D" parent="LevelEnd" index="0"]
+position = Vector2(10, -49)
+shape = SubResource("RectangleShape2D_kmspj")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2(-30, 0)
+transform = Transform2D(1, 0, 0, 1, -30, 0)
+
+[node name="6" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(288, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/6"]
+texture_repeat = 2
+texture = ExtResource("3_gbfvw")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 1, 576, 210)
+
+[node name="5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(288, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/5"]
+texture_repeat = 2
+texture = ExtResource("4_qxlj4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 1, 576, 210)
+
+[node name="4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(288, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/4"]
+texture_repeat = 2
+texture = ExtResource("5_jo4av")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 1, 576, 210)
+
+[node name="3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(288, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/3"]
+texture_repeat = 2
+texture = ExtResource("6_jxvlp")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 1, 576, 210)
+
+[node name="2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(288, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/2"]
+texture_repeat = 2
+texture = ExtResource("7_gwku7")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 1, 576, 210)
+
+[node name="1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(1.5, 1.5)
+motion_mirroring = Vector2(288, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/1"]
+texture_repeat = 2
+texture = ExtResource("8_64es3")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 1, 576, 210)
+
+[node name="pause_menu" parent="." instance=ExtResource("20_dki5c")]
+
+[node name="hud" parent="." instance=ExtResource("21_cvgm6")]
+
+[node name="bg_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_kuygm")
+volume_db = -16.421
+autoplay = true
+
+[node name="sign" type="Area2D" parent="." groups=["signs"]]
+unique_name_in_owner = true
+position = Vector2(68, 185)
+script = ExtResource("23_un5na")
+messages = Array[String](["[E] Para Interagir", "Bem vindo ao MushHop..", "Seu objetivo é sobreviver e conhecer...", "sobre o reino fúngico!!", "Você irá aprender sobre alguns predadores", " dos fungos na vida real,", "como também alguns cogumelos e seus efeitos", "Primeiro cogumelo será: Amanita muscaria", "Que tem como efeito causar delirio e alucinações!", "Segundo cogumelo será: Shiitake", "Que tem como efeito o aumento da imunidade,", "e ação intoxidante!!", "....", "Pegar cogumelo e gotas de água dá score", "Assim como também matar os inimigos", "Então acumule o máximo possível!!"])
+
+[node name="collision" type="CollisionShape2D" parent="sign"]
+shape = SubResource("RectangleShape2D_7mab7")
+debug_color = Color(1, 1, 1, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="sign"]
+texture = ExtResource("23_bqdkd")
+
+[node name="Panel" type="Panel" parent="sign"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -43.0
+offset_top = -44.0
+offset_right = 45.0
+offset_bottom = -8.0
+grow_horizontal = 2
+
+[node name="message_label" type="Label" parent="sign/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("24_un5na")
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[editable path="LevelEnd"]

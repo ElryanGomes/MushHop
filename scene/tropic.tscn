@@ -1,0 +1,294 @@
+[gd_scene load_steps=28 format=4 uid="uid://bkucakambaron"]
+
+[ext_resource type="PackedScene" uid="uid://depodrve142og" path="res://entities/player.tscn" id="1_7xb8y"]
+[ext_resource type="Script" uid="uid://nwr50xsl11bm" path="res://scripts/tropic.gd" id="1_t8vtq"]
+[ext_resource type="TileSet" uid="uid://dimks3lrxx581" path="res://tiles/Terrain.tres" id="2_34ia6"]
+[ext_resource type="TileSet" uid="uid://bxlswegjgafqt" path="res://tiles/Decoration.tres" id="3_d18o5"]
+[ext_resource type="Texture2D" uid="uid://7f5ed5ykv8ko" path="res://sprites/Blocos/3 - Tropics/Background parts/5 - Sky_color.png" id="4_t8vtq"]
+[ext_resource type="Texture2D" uid="uid://btqwqwq10bcjy" path="res://sprites/Blocos/3 - Tropics/Background parts/4 - Background_clouds.png" id="5_ei81g"]
+[ext_resource type="PackedScene" uid="uid://bspu4ddxo1d0d" path="res://entities/paredes_invisiveis.tscn" id="5_kjkl5"]
+[ext_resource type="Texture2D" uid="uid://cgxmmojyx58iq" path="res://sprites/Blocos/3 - Tropics/Background parts/3 - Floating_clouds.png" id="6_ytc0w"]
+[ext_resource type="Texture2D" uid="uid://c3jluxqycgboq" path="res://sprites/Blocos/3 - Tropics/Background parts/1 - Waters_version_1.png" id="7_xflqb"]
+[ext_resource type="PackedScene" uid="uid://c8duox5j3j38k" path="res://entities/skeleton.tscn" id="8_3eg8f"]
+[ext_resource type="Texture2D" uid="uid://dnyo78dyogcvy" path="res://sprites/Blocos/3 - Tropics/Background parts/2 - Waters_version_2.png" id="8_xnncp"]
+[ext_resource type="PackedScene" uid="uid://w85h3vehm2j0" path="res://scene/pause_menu.tscn" id="8_ytc0w"]
+[ext_resource type="PackedScene" uid="uid://b2xv2s6dtkda2" path="res://entities/lesma.tscn" id="9_3eg8f"]
+[ext_resource type="PackedScene" uid="uid://c2dv7jj43u4ky" path="res://entities/camera.tscn" id="9_34ia6"]
+[ext_resource type="PackedScene" uid="uid://cmklj54srdl1h" path="res://entities/level_end.tscn" id="10_d18o5"]
+[ext_resource type="PackedScene" uid="uid://d3f3fygaadekl" path="res://entities/cogumelo_nausea.tscn" id="11_b78wb"]
+[ext_resource type="PackedScene" uid="uid://e3hqbotp1141" path="res://entities/paredes_inivisiveis_mapa.tscn" id="12_ei81g"]
+[ext_resource type="PackedScene" uid="uid://b1cpskgkhcpjk" path="res://entities/cogumelo_cura.tscn" id="12_kajwn"]
+[ext_resource type="PackedScene" uid="uid://dxecidowu1anj" path="res://scene/hud.tscn" id="14_xflqb"]
+[ext_resource type="PackedScene" uid="uid://cfm1jrpt34jnu" path="res://entities/water.tscn" id="15_xnncp"]
+[ext_resource type="Script" uid="uid://yesbcxxkfyfx" path="res://scripts/sign.gd" id="21_hohr6"]
+[ext_resource type="Texture2D" uid="uid://b1oxibsu3b846" path="res://sprites/hud/placa.png" id="22_7jepg"]
+[ext_resource type="FontFile" uid="uid://wsuwgtp1mwmv" path="res://sprites/hud/RevMiniPixel.ttf" id="23_kwwm6"]
+[ext_resource type="PackedScene" uid="uid://di5qhg0kc1p11" path="res://entities/checkpoint_mushroom.tscn" id="24_7jepg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8vtq"]
+size = Vector2(20, 259)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fhn5d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_xflqb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xnncp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ovcmj"]
+size = Vector2(26, 20)
+
+[node name="Tropic" type="Node2D"]
+script = ExtResource("1_t8vtq")
+
+[node name="Player" parent="." instance=ExtResource("1_7xb8y")]
+position = Vector2(12, 163)
+
+[node name="Camera" parent="." instance=ExtResource("9_34ia6")]
+position = Vector2(20, 107)
+limit_top = -100
+limit_right = 1550
+limit_bottom = 202
+
+[node name="paredes_mapa" type="Node" parent="."]
+
+[node name="paredes_inivisiveis_mapa" parent="paredes_mapa" instance=ExtResource("12_ei81g")]
+position = Vector2(1, -45)
+
+[node name="parede_mob" type="Node" parent="."]
+
+[node name="parede_invisiveis_mob" parent="parede_mob" instance=ExtResource("5_kjkl5")]
+position = Vector2(299, 160)
+
+[node name="parede_invisiveis_mob2" parent="parede_mob" instance=ExtResource("5_kjkl5")]
+position = Vector2(407, 161)
+
+[node name="parede_invisiveis_mob3" parent="parede_mob" instance=ExtResource("5_kjkl5")]
+position = Vector2(521, 161)
+
+[node name="parede_invisiveis_mob4" parent="parede_mob" instance=ExtResource("5_kjkl5")]
+position = Vector2(952, 161)
+
+[node name="parede_invisiveis_mob5" parent="parede_mob" instance=ExtResource("5_kjkl5")]
+position = Vector2(971, 114)
+
+[node name="parede_invisiveis_mob6" parent="parede_mob" instance=ExtResource("5_kjkl5")]
+position = Vector2(1016, 114)
+
+[node name="parede_invisiveis_mob7" parent="parede_mob" instance=ExtResource("5_kjkl5")]
+position = Vector2(1256, 144)
+
+[node name="parede_invisiveis_mob8" parent="parede_mob" instance=ExtResource("5_kjkl5")]
+position = Vector2(1561, 145)
+
+[node name="TileMaps" type="Node" parent="."]
+
+[node name="Terrain" type="TileMapLayer" parent="TileMaps"]
+tile_map_data = PackedByteArray("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")
+tile_set = ExtResource("2_34ia6")
+
+[node name="Decoration" type="TileMapLayer" parent="TileMaps"]
+tile_map_data = PackedByteArray("AAD//wwAAQAMAAYAAAAAAAwAAQAMAAYAAAABAAwAAQAMAAYAAAACAAwAAQAMAAYAAAADAAwAAQAMAAYAAAAEAAwAAQAMAAYAAAAFAAwAAQAMAAYAAAAGAAwAAQAMAAYAAAAHAAwAAQAMAAYAAAAIAAwAAQAMAAYAAAAJAAwAAQAMAAYAAAAKAAoABgAAAAAAAAAKAAsAAQAMAAUAAAAKAAwAAQAMAAYAAAALAAsAAQAMAAUAAAALAAwAAQAMAAYAAAAMAAwAAQAMAAYAAAANAAwAAQAMAAYAAAAOAAwAAQAMAAYAAAAPAAwAAQAMAAYAAAAQAAwAAQAMAAYAAAARAAwAAQAMAAYAAAASAAwAAQAMAAYAAAATAAwAAQAMAAYAAAAUAAwAAQAMAAYAAAAVAAwAAQAMAAYAAAAWAAwAAQAMAAYAAAAXAAwAAQAMAAYAAAAYAAwAAQAMAAYAAAAZAAsAAQAMAAUAAAAZAAwAAQAMAAYAAAAaAAwAAQAMAAYAAAAbAAwAAQAMAAYAAAAcAAwAAQAMAAYAAAAdAAwAAQAMAAYAAAAeAAwAAQAMAAYAAAAfAAwAAQAMAAYAAAAgAAwAAQAMAAYAAAAhAAwAAQAMAAYAAAAiAAsAAQAMAAUAAAAiAAwAAQAMAAYAAAAjAAwAAQAMAAYAAAAkAAwAAQAMAAYAAAAlAAwAAQAMAAYAAAAmAAwAAQAMAAYAAAAnAAsAAQAMAAUAAAAnAAwAAQAMAAYAAAAoAAsAAQAMAAUAAAAoAAwAAQAMAAYAAAApAAsAAQAMAAUAAAApAAwAAQAMAAYAAAAqAAsAAQAMAAUAAAAqAAwAAQAMAAYAAAArAAwAAQAMAAYAAAAsAAwAAQAMAAYAAAAtAAwAAQAMAAYAAAAuAAwAAQAMAAYAAAAvAAsAAQAMAAUAAAAvAAwAAQAMAAYAAAAwAAwAAQAMAAYAAAAxAAwAAQAMAAYAAAAyAAwAAQAMAAYAAAAzAAwAAQAMAAYAAAA0AAwAAQAMAAYAAAA1AAwAAQAMAAYAAAA2AAwAAQAMAAYAAAA3AAsAAQAMAAUAAAA3AAwAAQAMAAYAAAA4AAsAAQAMAAUAAAA4AAwAAQAMAAYAAAA5AAsAAQAMAAUAAAA5AAwAAQAMAAYAAAA6AAsAAQAMAAUAAAA6AAwAAQAMAAYAAAA7AAwAAQAMAAYAAAA8AAwAAQAMAAYAAAA9AAwAAQAMAAYAAAA+AAwAAQAMAAYAAAA/AAwAAQAMAAYAAABAAAwAAQAMAAYAAABBAAwAAQAMAAYAAABCAAwAAQAMAAYAAABDAAwAAQAMAAYAAABEAAwAAQAMAAYAAABFAAwAAQAMAAYAAABGAAwAAQAMAAYAAABHAAwAAQAMAAYAAABIAAwAAQAMAAYAAABJAAwAAQAMAAYAAABKAAwAAQAMAAYAAAD//wsAAQAMAAUAAAAAAAsAAQAMAAUAAAABAAsAAQAMAAUAAAACAAsAAQAMAAUAAAADAAsAAQAMAAUAAAAEAAsAAQAMAAUAAAAFAAsAAQAMAAUAAAAGAAsAAQAMAAUAAAAHAAsAAQAMAAUAAAAIAAsAAQAMAAUAAAAJAAsAAQAMAAUAAAAKAAkAAQABAAEAAAALAAoABgAAAAAAAAAMAAsAAQAMAAUAAAANAAsAAQAMAAUAAAAOAAsAAQAMAAUAAAAPAAsAAQAMAAUAAAAQAAsAAQAMAAUAAAARAAsAAQAMAAUAAAASAAsAAQAMAAUAAAATAAsAAQAMAAUAAAAUAAsAAQAMAAUAAAAVAAsAAQAMAAUAAAAWAAsAAQAMAAUAAAAXAAkAAQABAAEAAAAXAAsAAQAMAAUAAAAYAAsAAQAMAAUAAAAaAAsAAQAMAAUAAAAbAAsAAQAMAAUAAAAcAAsAAQAMAAUAAAAdAAsAAQAMAAUAAAAeAAsAAQAMAAUAAAAfAAsAAQAMAAUAAAAgAAsAAQAMAAUAAAAhAAsAAQAMAAUAAAAiAAoAAAABAAUAAAAjAAkAAAABAAEAAAAjAAsAAQAMAAUAAAAkAAsAAQAMAAUAAAAlAAsAAQAMAAUAAAAmAAsAAQAMAAUAAAAnAAoAAQAFAAMAAAAoAAoAAQAGAAMAAAApAAoAAQAHAAMAAAAqAAoAAAABAAUAAAArAAsAAQAMAAUAAAAsAAsAAQAMAAUAAAAtAAkAAQABAAEAAAAtAAsAAQAMAAUAAAAuAAsAAQAMAAUAAAAvAAoAAAABAAUAAAAwAAsAAQAMAAUAAAAxAAsAAQAMAAUAAAAyAAsAAQAMAAUAAAAzAAgAAwAAAAAAAAAzAAsAAQAMAAUAAAA0AAsAAQAMAAUAAAA1AAsAAQAMAAUAAAA2AAsAAQAMAAUAAAA3AAoAAgAFAAMAAAA4AAoAAgAGAAMAAAA5AAoAAgAHAAMAAAA6AAoAAgAIAAMAAAA7AAsAAQAMAAUAAAA8AAsAAQAMAAUAAAA9AAsAAQAMAAUAAAA+AAsAAQAMAAUAAAA/AAsAAQAMAAUAAABAAAsAAQAMAAUAAABBAAsAAQAMAAUAAABCAAsAAQAMAAUAAABDAAsAAQAMAAUAAABEAAsAAQAMAAUAAABFAAsAAQAMAAUAAABGAAsAAQAMAAUAAABHAAsAAQAMAAUAAABIAAsAAQAMAAUAAABJAAsAAQAMAAUAAABKAAsAAQAMAAUAAABQAAoAAQAJAAMAAABUAAoAAQALAAMAAABUAAkAAQALAAMAAABUAAgAAQALAAIAAABVAAgAAQAMAAIAAABXAAgAAQANAAIAAABWAAgAAQAMAAIAAABXAAoAAQANAAMAAABXAAkAAQANAAMAAABYAAgAAQAOAAIAAABZAAgAAQAOAAIAAABaAAgAAQAPAAIAAABaAAkAAQAPAAMAAABaAAoAAQAPAAMAAABcAAkAAQABAAEAAABLAAsAAQAMAAUAAABLAAwAAQAMAAYAAABMAAsAAQAMAAUAAABMAAwAAQAMAAYAAABNAAsAAQAMAAUAAABNAAwAAQAMAAYAAABOAAsAAQAMAAUAAABOAAwAAQAMAAYAAABPAAsAAQAMAAUAAABPAAwAAQAMAAYAAABQAAsAAQAMAAUAAABQAAwAAQAMAAYAAABRAAsAAQAMAAUAAABRAAwAAQAMAAYAAABSAAsAAQAMAAUAAABSAAwAAQAMAAYAAABTAAsAAQAMAAUAAABTAAwAAQAMAAYAAABUAAsAAQAMAAUAAABUAAwAAQAMAAYAAABVAAsAAQAMAAUAAABVAAwAAQAMAAYAAABWAAsAAQAMAAUAAABWAAwAAQAMAAYAAABXAAsAAQAMAAUAAABXAAwAAQAMAAYAAABYAAsAAQAMAAUAAABYAAwAAQAMAAYAAABZAAsAAQAMAAUAAABZAAwAAQAMAAYAAABaAAsAAQAMAAUAAABaAAwAAQAMAAYAAABbAAsAAQAMAAUAAABbAAwAAQAMAAYAAABcAAsAAQAMAAUAAABcAAwAAQAMAAYAAABdAAsAAQAMAAUAAABdAAwAAQAMAAYAAABeAAsAAQAMAAUAAABeAAwAAQAMAAYAAABfAAsAAQAMAAUAAABfAAwAAQAMAAYAAABgAAsAAQAMAAUAAABgAAwAAQAMAAYAAABhAAsAAQAMAAUAAABhAAwAAQAMAAYAAABiAAsAAQAMAAUAAABiAAwAAQAMAAYAAABjAAsAAQAMAAUAAABjAAwAAQAMAAYAAABkAAsAAQAMAAUAAABkAAwAAQAMAAYAAABlAAsAAQAMAAUAAABlAAwAAQAMAAYAAABmAAsAAQAMAAUAAABmAAwAAQAMAAYAAABnAAsAAQAMAAUAAABnAAwAAQAMAAYAAABoAAsAAQAMAAUAAABoAAwAAQAMAAYAAABpAAsAAQAMAAUAAABpAAwAAQAMAAYAAABqAAsAAQAMAAUAAABqAAwAAQAMAAYAAABrAAsAAQAMAAUAAABrAAwAAQAMAAYAAABsAAsAAQAMAAUAAABsAAwAAQAMAAYAAABtAAsAAQAMAAUAAABtAAwAAQAMAAYAAABuAAsAAQAMAAUAAABuAAwAAQAMAAYAAABvAAsAAQAMAAUAAABvAAwAAQAMAAYAAABwAAsAAQAMAAUAAABwAAwAAQAMAAYAAABxAAsAAQAMAAUAAABxAAwAAQAMAAYAAAByAAsAAQAMAAUAAAByAAwAAQAMAAYAAABzAAsAAQAMAAUAAABzAAwAAQAMAAYAAAB0AAsAAQAMAAUAAAB0AAwAAQAMAAYAAAB1AAsAAQAMAAUAAAB1AAwAAQAMAAYAAABfAAoAAAADAAUAAAA=")
+tile_set = ExtResource("3_d18o5")
+
+[node name="inimigos" type="Node" parent="."]
+
+[node name="skeleton" parent="inimigos" instance=ExtResource("8_3eg8f")]
+position = Vector2(379, 171)
+SPEED = 2000
+enemy_score = 150
+
+[node name="skeleton2" parent="inimigos" instance=ExtResource("8_3eg8f")]
+position = Vector2(189, 169)
+SPEED = 2000
+enemy_score = 150
+
+[node name="skeleton3" parent="inimigos" instance=ExtResource("8_3eg8f")]
+position = Vector2(303, 170)
+SPEED = 2000
+enemy_score = 150
+
+[node name="skeleton4" parent="inimigos" instance=ExtResource("8_3eg8f")]
+position = Vector2(723, 169)
+SPEED = 2300
+enemy_score = 150
+
+[node name="skeleton5" parent="inimigos" instance=ExtResource("8_3eg8f")]
+position = Vector2(1535, 169)
+SPEED = 2000
+enemy_score = 150
+
+[node name="lesma" parent="inimigos" instance=ExtResource("9_3eg8f")]
+position = Vector2(529, 168)
+
+[node name="lesma2" parent="inimigos" instance=ExtResource("9_3eg8f")]
+position = Vector2(926, 167)
+
+[node name="lesma3" parent="inimigos" instance=ExtResource("9_3eg8f")]
+position = Vector2(987, 134)
+
+[node name="lesma4" parent="inimigos" instance=ExtResource("9_3eg8f")]
+position = Vector2(1267, 167)
+
+[node name="itens" type="Node" parent="."]
+
+[node name="waters" type="Node" parent="itens"]
+
+[node name="water" parent="itens/waters" instance=ExtResource("15_xnncp")]
+position = Vector2(155, 168)
+
+[node name="water3" parent="itens/waters" instance=ExtResource("15_xnncp")]
+position = Vector2(174, 73)
+
+[node name="water4" parent="itens/waters" instance=ExtResource("15_xnncp")]
+position = Vector2(254, -27)
+
+[node name="water5" parent="itens/waters" instance=ExtResource("15_xnncp")]
+position = Vector2(191, 7)
+
+[node name="water6" parent="itens/waters" instance=ExtResource("15_xnncp")]
+position = Vector2(337, 17)
+
+[node name="water12" parent="itens/waters" instance=ExtResource("15_xnncp")]
+position = Vector2(337, 46)
+
+[node name="water7" parent="itens/waters" instance=ExtResource("15_xnncp")]
+position = Vector2(349, 170)
+
+[node name="water8" parent="itens/waters" instance=ExtResource("15_xnncp")]
+position = Vector2(520, 169)
+
+[node name="water9" parent="itens/waters" instance=ExtResource("15_xnncp")]
+position = Vector2(651, 167)
+
+[node name="water10" parent="itens/waters" instance=ExtResource("15_xnncp")]
+position = Vector2(821, 167)
+
+[node name="water11" parent="itens/waters" instance=ExtResource("15_xnncp")]
+position = Vector2(268, 37)
+
+[node name="water2" parent="itens/waters" instance=ExtResource("15_xnncp")]
+position = Vector2(222, 118)
+
+[node name="cogumelos" type="Node" parent="itens"]
+
+[node name="cogumelo" parent="itens/cogumelos" instance=ExtResource("11_b78wb")]
+position = Vector2(1073, 117)
+
+[node name="cogumelo_cura" parent="itens" instance=ExtResource("12_kajwn")]
+position = Vector2(170.99998, -59.999996)
+
+[node name="LevelEnd" parent="." instance=ExtResource("10_d18o5")]
+position = Vector2(1558, 165)
+Next_Level = "game"
+
+[node name="CollisionShape2D" parent="LevelEnd" index="0"]
+position = Vector2(5, -116)
+shape = SubResource("RectangleShape2D_t8vtq")
+
+[node name="pause_menu" parent="." instance=ExtResource("8_ytc0w")]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(288, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/5"]
+texture_repeat = 2
+texture = ExtResource("4_t8vtq")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 576, 208)
+
+[node name="4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.05)
+motion_mirroring = Vector2(288, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/4"]
+texture_repeat = 2
+texture = ExtResource("5_ei81g")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 576, 208)
+
+[node name="3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.05)
+motion_mirroring = Vector2(288, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/3"]
+texture_repeat = 2
+texture = ExtResource("6_ytc0w")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 576, 208)
+
+[node name="2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.3, 0.15)
+motion_mirroring = Vector2(288, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ParallaxBackground/2"]
+texture_repeat = 2
+sprite_frames = SubResource("SpriteFrames_fhn5d")
+autoplay = "default"
+frame_progress = 0.051324725
+centered = false
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="ParallaxBackground/2"]
+texture_repeat = 2
+position = Vector2(576, 0)
+sprite_frames = SubResource("SpriteFrames_fhn5d")
+autoplay = "default"
+frame_progress = 0.6018041
+centered = false
+
+[node name="hud" parent="." instance=ExtResource("14_xflqb")]
+
+[node name="sign" type="Area2D" parent="." groups=["signs"]]
+unique_name_in_owner = true
+position = Vector2(129, 168)
+script = ExtResource("21_hohr6")
+messages = Array[String](["[E] Para Interagir", "Nessa fase você conhecerá outro predador dos fungos", "A lesma!!", "As lesmas são mais lentas porém tem mais vida", "Além de dá mais score.", "As formigas estão mais rápidas, mas dão  mais pontos", "Se divirta!!"])
+
+[node name="collision" type="CollisionShape2D" parent="sign"]
+shape = SubResource("RectangleShape2D_ovcmj")
+debug_color = Color(1, 1, 1, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="sign"]
+texture = ExtResource("22_7jepg")
+
+[node name="Panel" type="Panel" parent="sign"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.0
+offset_top = -51.0
+offset_right = 47.0
+offset_bottom = -11.0
+grow_horizontal = 2
+
+[node name="message_label" type="Label" parent="sign/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("23_kwwm6")
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="checkpoint_mushroom" parent="." instance=ExtResource("24_7jepg")]
+position = Vector2(48.000004, 143)
+
+[editable path="LevelEnd"]

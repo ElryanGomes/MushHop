@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://b1cpskgkhcpjk"]
+
+[ext_resource type="Script" uid="uid://dmd4n6qji2jo8" path="res://scripts/heart.gd" id="1_iopl6"]
+[ext_resource type="Texture2D" uid="uid://dvp067j8ugqcw" path="res://sprites/cogumelos/Cogumelo_cura.png" id="1_ns5ev"]
+[ext_resource type="AudioStream" uid="uid://fosc2nf7opk3" path="res://sounds/collect_heart_sound.wav" id="3_xvf0r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0603"]
+atlas = ExtResource("1_ns5ev")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_taokn"]
+atlas = ExtResource("1_ns5ev")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cex1"]
+atlas = ExtResource("1_ns5ev")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gpmf"]
+atlas = ExtResource("1_ns5ev")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1s6vx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0603")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_taokn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cex1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1gpmf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1gpmf"]
+radius = 11.6856985
+
+[node name="cogumelo_cura" type="Area2D"]
+scale = Vector2(0.7, 0.7)
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_iopl6")
+
+[node name="anima" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1s6vx")
+autoplay = "default"
+frame_progress = 0.9031896
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.6666665)
+shape = SubResource("CircleShape2D_1gpmf")
+
+[node name="collect_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_xvf0r")
+volume_db = -14.075
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

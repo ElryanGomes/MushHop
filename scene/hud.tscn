@@ -1,0 +1,118 @@
+[gd_scene load_steps=11 format=3 uid="uid://dxecidowu1anj"]
+
+[ext_resource type="Script" uid="uid://j6swh6agyc1i" path="res://scripts/hud.gd" id="1_qo4i2"]
+[ext_resource type="Texture2D" uid="uid://b7au1bin8s7a1" path="res://sprites/water_gota/gota_1.png" id="2_8tpd4"]
+[ext_resource type="Texture2D" uid="uid://604uhj0etjk1" path="res://sprites/water_gota/gota_2.png" id="3_o04v5"]
+[ext_resource type="FontFile" uid="uid://wsuwgtp1mwmv" path="res://sprites/hud/RevMiniPixel.ttf" id="4_hbtcn"]
+[ext_resource type="Texture2D" uid="uid://4ay0i741q7yj" path="res://sprites/hud/pixil-frame-0.png" id="5_sjh6b"]
+[ext_resource type="Texture2D" uid="uid://bb5b3tvrnxuo3" path="res://sprites/hud/pixil-frame-1.png" id="6_xphas"]
+[ext_resource type="Texture2D" uid="uid://bn27xx03wcvtl" path="res://sprites/hud/pixil-frame-2.png" id="7_kc6cu"]
+[ext_resource type="Texture2D" uid="uid://dkj6wj4gv8irb" path="res://sprites/hud/pixil-frame-3.png" id="8_62he3"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_7rqbh"]
+frames = 2
+speed_scale = 2.0
+frame_0/texture = ExtResource("2_8tpd4")
+frame_1/texture = ExtResource("3_o04v5")
+frame_1/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_b48p2"]
+frames = 4
+speed_scale = 1.7
+frame_0/texture = ExtResource("5_sjh6b")
+frame_1/texture = ExtResource("6_xphas")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("7_kc6cu")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("8_62he3")
+frame_3/duration = 1.0
+
+[node name="hud" type="CanvasLayer"]
+
+[node name="control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qo4i2")
+
+[node name="container" type="MarginContainer" parent="control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="water_container" type="HBoxContainer" parent="control/container"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="water_icons" type="TextureRect" parent="control/container/water_container"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AnimatedTexture_7rqbh")
+
+[node name="water_counter" type="Label" parent="control/container/water_container"]
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_hbtcn")
+theme_override_font_sizes/font_size = 8
+text = "000"
+vertical_alignment = 1
+
+[node name="score_container" type="HBoxContainer" parent="control/container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="score_label" type="Label" parent="control/container/score_container"]
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_hbtcn")
+theme_override_font_sizes/font_size = 8
+text = "SCORE:"
+vertical_alignment = 1
+
+[node name="score_counter" type="Label" parent="control/container/score_container"]
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_hbtcn")
+theme_override_font_sizes/font_size = 8
+text = "000000"
+vertical_alignment = 1
+
+[node name="life_container" type="HBoxContainer" parent="control/container"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="life_icons" type="TextureRect" parent="control/container/life_container"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_vertical = 0
+texture = SubResource("AnimatedTexture_b48p2")
+
+[node name="life_separator" type="Label" parent="control/container/life_container"]
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_hbtcn")
+theme_override_font_sizes/font_size = 8
+text = "X"
+vertical_alignment = 1
+
+[node name="life_counter" type="Label" parent="control/container/life_container"]
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_hbtcn")
+theme_override_font_sizes/font_size = 8
+text = "03"
+vertical_alignment = 1

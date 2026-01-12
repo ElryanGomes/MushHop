@@ -1,0 +1,129 @@
+[gd_scene load_steps=17 format=3 uid="uid://di5qhg0kc1p11"]
+
+[ext_resource type="Script" uid="uid://06yyqkgy6rd4" path="res://scripts/checkpoint_mushroom.gd" id="1_33ygt"]
+[ext_resource type="Texture2D" uid="uid://b3aqv8v3m0c7l" path="res://sprites/cogumelo_checkpoint/explosion_1.png" id="2_revc1"]
+[ext_resource type="Texture2D" uid="uid://04l3r20qnmft" path="res://sprites/cogumelo_checkpoint/explosion_22.png" id="3_7luen"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_33ygt"]
+size = Vector2(263, 387)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7h6s"]
+atlas = ExtResource("2_revc1")
+region = Rect2(0, 0, 254, 392)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1g2ss"]
+atlas = ExtResource("2_revc1")
+region = Rect2(254, 0, 254, 392)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36km2"]
+atlas = ExtResource("2_revc1")
+region = Rect2(508, 0, 254, 392)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jf1os"]
+atlas = ExtResource("2_revc1")
+region = Rect2(762, 0, 254, 392)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6mg4"]
+atlas = ExtResource("2_revc1")
+region = Rect2(1016, 0, 254, 392)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgntb"]
+atlas = ExtResource("3_7luen")
+region = Rect2(0, 0, 248, 286)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eyi87"]
+atlas = ExtResource("3_7luen")
+region = Rect2(248, 0, 248, 286)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tdx8"]
+atlas = ExtResource("3_7luen")
+region = Rect2(496, 0, 248, 286)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cxyu"]
+atlas = ExtResource("3_7luen")
+region = Rect2(744, 0, 248, 286)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjlli"]
+atlas = ExtResource("3_7luen")
+region = Rect2(992, 0, 248, 286)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcrkt"]
+atlas = ExtResource("2_revc1")
+region = Rect2(0, 0, 278, 392)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dh75q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7h6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1g2ss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36km2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jf1os")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6mg4")
+}],
+"loop": false,
+"name": &"explosion1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgntb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eyi87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5tdx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cxyu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjlli")
+}],
+"loop": true,
+"name": &"explosion2",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"explosion3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcrkt")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[node name="checkpoint_mushroom" type="Area2D"]
+scale = Vector2(0.2, 0.2)
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_33ygt")
+
+[node name="coliision" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_33ygt")
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dh75q")
+animation = &"explosion1"
+
+[node name="explosion" type="CPUParticles2D" parent="."]
+position = Vector2(10, 14)
+
+[node name="audio" type="AudioStreamPlayer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

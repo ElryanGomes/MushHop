@@ -1,0 +1,175 @@
+[gd_scene load_steps=11 format=3 uid="uid://dwsvibm5x5mo0"]
+
+[ext_resource type="Script" uid="uid://c7cm6vlfj0gg0" path="res://scripts/game_over.gd" id="1_bc2bx"]
+[ext_resource type="Texture2D" uid="uid://1007mwgu4aee" path="res://sprites/hud/game_over.png" id="1_mxr41"]
+[ext_resource type="Theme" uid="uid://usxo76e182gf" path="res://theme_padrao.tres" id="2_bc2bx"]
+[ext_resource type="FontFile" uid="uid://bqooxgxklg44d" path="res://sprites/hud/Akando.otf" id="4_0sgxn"]
+[ext_resource type="AudioStream" uid="uid://dfcf1tlrinrjj" path="res://sounds/sound_game_over.mp3" id="4_6pabp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6pabp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ooyig"]
+
+[sub_resource type="Animation" id="Animation_bc2bx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("gameOver:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mxr41"]
+resource_name = "fad_in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("gameOver:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6pabp"]
+_data = {
+&"RESET": SubResource("Animation_bc2bx"),
+&"fad_in": SubResource("Animation_mxr41")
+}
+
+[node name="game_over" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bc2bx")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="gameOver" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -42.0
+offset_right = 84.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="game_over_title" type="TextureRect" parent="gameOver"]
+layout_mode = 2
+texture = ExtResource("1_mxr41")
+
+[node name="HSeparator2" type="HSeparator" parent="gameOver"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_6pabp")
+
+[node name="restart_btn" type="Button" parent="gameOver"]
+layout_mode = 2
+theme = ExtResource("2_bc2bx")
+text = "Restart"
+
+[node name="HSeparator" type="HSeparator" parent="gameOver"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ooyig")
+
+[node name="menu" type="Button" parent="gameOver"]
+layout_mode = 2
+theme = ExtResource("2_bc2bx")
+text = "Home"
+
+[node name="score" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 97.0
+offset_bottom = 58.0
+
+[node name="score" type="HBoxContainer" parent="score"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label2" type="Label" parent="score/score"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_0sgxn")
+theme_override_font_sizes/font_size = 12
+text = "1000"
+
+[node name="umidade" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 299.0
+offset_top = 8.0
+offset_right = 388.0
+offset_bottom = 58.0
+
+[node name="umidade" type="HBoxContainer" parent="umidade"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="umidade/umidade"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_0sgxn")
+theme_override_font_sizes/font_size = 12
+text = "3"
+
+[node name="anima" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_6pabp")
+}
+autoplay = "fad_in"
+
+[node name="sound_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_6pabp")
+volume_db = -3.91
+autoplay = true
+
+[connection signal="pressed" from="gameOver/restart_btn" to="." method="_on_restart_btn_pressed"]
+[connection signal="pressed" from="gameOver/menu" to="." method="_on_menu_pressed"]

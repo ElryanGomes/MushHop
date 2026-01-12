@@ -1,0 +1,32 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://usxo76e182gf"]
+
+[ext_resource type="FontFile" uid="uid://wsuwgtp1mwmv" path="res://sprites/hud/RevMiniPixel.ttf" id="1_jiyak"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tpml5"]
+bg_color = Color(0, 0.73333335, 0.34509805, 0)
+expand_margin_top = 5.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jqemp"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+expand_margin_top = 5.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_013yr"]
+bg_color = Color(0, 0.6, 0.2784314, 0)
+border_color = Color(0, 0.45554036, 0.20489332, 1)
+expand_margin_top = 5.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8vmu4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+expand_margin_top = 5.0
+expand_margin_bottom = 2.0
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/fonts/font = ExtResource("1_jiyak")
+Button/styles/focus = SubResource("StyleBoxFlat_tpml5")
+Button/styles/hover = SubResource("StyleBoxFlat_jqemp")
+Button/styles/normal = SubResource("StyleBoxFlat_013yr")
+Button/styles/pressed = SubResource("StyleBoxFlat_8vmu4")

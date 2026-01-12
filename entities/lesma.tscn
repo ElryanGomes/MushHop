@@ -1,0 +1,92 @@
+[gd_scene load_steps=13 format=3 uid="uid://b2xv2s6dtkda2"]
+
+[ext_resource type="Script" uid="uid://bmst4fvytd73o" path="res://scripts/lesma.gd" id="1_v12x5"]
+[ext_resource type="Texture2D" uid="uid://bllhilbvmpxvl" path="res://sprites/lesma/lesma_walk.png" id="2_vm6sa"]
+[ext_resource type="AudioStream" uid="uid://cfxgkxltotpce" path="res://sounds/dead_lesma.mp3" id="3_vm6sa"]
+[ext_resource type="PackedScene" uid="uid://bujldwbx12021" path="res://entities/hitbox.tscn" id="4_pukva"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pukva"]
+atlas = ExtResource("2_vm6sa")
+region = Rect2(0, 0, 84, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m37gn"]
+atlas = ExtResource("2_vm6sa")
+region = Rect2(84, 0, 84, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ye5xp"]
+atlas = ExtResource("2_vm6sa")
+region = Rect2(168, 0, 84, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06wjy"]
+atlas = ExtResource("2_vm6sa")
+region = Rect2(252, 0, 84, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcdig"]
+atlas = ExtResource("2_vm6sa")
+region = Rect2(336, 0, 84, 51)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hn53s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pukva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m37gn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ye5xp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06wjy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcdig")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ad84"]
+size = Vector2(66.66667, 23.333332)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m37gn"]
+size = Vector2(60, 6.666666)
+
+[node name="lesma" type="CharacterBody2D" groups=["enemies"]]
+scale = Vector2(0.3, 0.3)
+collision_layer = 4
+collision_mask = 33
+script = ExtResource("1_v12x5")
+enemy_score = 200
+
+[node name="anima" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hn53s")
+animation = &"walk"
+frame_progress = 0.8568814
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.3333328, 11.666666)
+shape = SubResource("RectangleShape2D_8ad84")
+debug_color = Color(0.41345876, 0.5102563, 0.8617567, 0.41960785)
+
+[node name="wall_detector" type="RayCast2D" parent="."]
+position = Vector2(0, 10)
+target_position = Vector2(-43.333332, 0)
+collision_mask = 39
+hit_from_inside = true
+
+[node name="hitbox" parent="." instance=ExtResource("4_pukva")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(-3.3333333, -3.3333333)
+shape = SubResource("RectangleShape2D_m37gn")
+debug_color = Color(0.98328716, 0, 0.35874295, 0.41960785)
+
+[node name="die_lesma_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vm6sa")
+volume_db = -13.906
+pitch_scale = 1.29
+
+[connection signal="animation_finished" from="anima" to="." method="_on_anima_animation_finished"]

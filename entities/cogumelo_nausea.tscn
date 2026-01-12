@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://d3f3fygaadekl"]
+
+[ext_resource type="Texture2D" uid="uid://chehfvsbrriol" path="res://sprites/cogumelos/cogumelo nause.png" id="1_h76mc"]
+[ext_resource type="Script" uid="uid://cowxebi4r8vrb" path="res://scripts/cogumelo_nausea.gd" id="1_wbkfv"]
+[ext_resource type="AudioStream" uid="uid://gks1wdy3v676" path="res://sounds/collect_sound.wav" id="3_8l2g8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hmjle"]
+radius = 8.0
+height = 18.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hw0q"]
+atlas = ExtResource("1_h76mc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4qp2"]
+atlas = ExtResource("1_h76mc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1co4o"]
+atlas = ExtResource("1_h76mc")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8bie"]
+atlas = ExtResource("1_h76mc")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1cw53"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hw0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4qp2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1co4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8bie")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="cogumelo" type="Area2D"]
+scale = Vector2(0.7, 0.7)
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_wbkfv")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_hmjle")
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1)
+sprite_frames = SubResource("SpriteFrames_1cw53")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.39313918
+
+[node name="collect_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8l2g8")
+volume_db = -3.127
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

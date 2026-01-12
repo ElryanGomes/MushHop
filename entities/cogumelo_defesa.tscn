@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://dnh12glplnon3"]
+
+[ext_resource type="Script" uid="uid://ca04yei0exjch" path="res://scripts/cogumelo_defesa.gd" id="1_55gls"]
+[ext_resource type="Texture2D" uid="uid://50fy27ygtvh" path="res://sprites/cogumelos/Cogumelo_defesa.png" id="2_suue0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2pwid"]
+radius = 16.0
+height = 36.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8ajh"]
+atlas = ExtResource("2_suue0")
+region = Rect2(0, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_visek"]
+atlas = ExtResource("2_suue0")
+region = Rect2(36, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cllkd"]
+atlas = ExtResource("2_suue0")
+region = Rect2(0, 36, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnlrk"]
+atlas = ExtResource("2_suue0")
+region = Rect2(36, 36, 36, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vhkak"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8ajh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_visek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cllkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnlrk")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D"]
+visibility_layer = 2
+collision_layer = 16
+script = ExtResource("1_55gls")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_2pwid")
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vhkak")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.27943066
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

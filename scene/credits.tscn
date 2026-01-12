@@ -1,0 +1,370 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1fhrmsj7r0w"]
+
+[ext_resource type="Script" uid="uid://cmmdrntys548y" path="res://scripts/credits.gd" id="1_s4ovi"]
+[ext_resource type="Texture2D" uid="uid://b22xu78hwpcf8" path="res://sprites/hud/fundo_cogumelo.jpg" id="2_55r6w"]
+[ext_resource type="Theme" uid="uid://usxo76e182gf" path="res://theme_padrao.tres" id="3_i66u5"]
+[ext_resource type="AudioStream" uid="uid://davt8us6vu464" path="res://sounds/credits_sound2.wav" id="4_55r6w"]
+
+[node name="credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s4ovi")
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_55r6w")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="nomes" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="titulo" type="HBoxContainer" parent="MarginContainer/nomes"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="developer" type="Panel" parent="MarginContainer/nomes/titulo"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="developer_label" type="Label" parent="MarginContainer/nomes/titulo/developer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 16.0
+offset_right = 99.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.043137256, 0.5882353, 0.043137256, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.39215687)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "DEVELOPER"
+
+[node name="designers" type="Panel" parent="MarginContainer/nomes/titulo"]
+layout_mode = 2
+
+[node name="designers_label" type="Label" parent="MarginContainer/nomes/titulo/designers"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 57.0
+offset_right = 95.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.6, 0.2784314, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.39215687)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "DESIGNERS"
+
+[node name="nome" type="HBoxContainer" parent="MarginContainer/nomes"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="elryan" type="Panel" parent="MarginContainer/nomes/nome"]
+layout_mode = 2
+
+[node name="elryan_label" type="Label" parent="MarginContainer/nomes/nome/elryan"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 114.0
+offset_top = 15.0
+offset_right = 204.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.39215687)
+theme_override_font_sizes/font_size = 10
+text = "José Elryan"
+
+[node name="gabriel" type="Panel" parent="MarginContainer/nomes/nome"]
+layout_mode = 2
+
+[node name="gabriel_label" type="Label" parent="MarginContainer/nomes/nome/gabriel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 110.0
+offset_top = 46.0
+offset_right = 200.0
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.39215687)
+theme_override_font_sizes/font_size = 10
+text = "João Gabriel"
+
+[node name="matheus" type="Panel" parent="MarginContainer/nomes/nome"]
+layout_mode = 2
+
+[node name="matheus_label" type="Label" parent="MarginContainer/nomes/nome/matheus"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 106.0
+offset_top = 67.0
+offset_right = 218.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.39215687)
+theme_override_font_sizes/font_size = 10
+text = "Matheus Rodrigues"
+
+[node name="email" type="HBoxContainer" parent="MarginContainer/nomes"]
+layout_mode = 2
+
+[node name="elryan" type="Panel" parent="MarginContainer/nomes/email"]
+layout_mode = 2
+
+[node name="elryan_label" type="Label" parent="MarginContainer/nomes/email/elryan"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 305.0
+offset_top = 12.0
+offset_right = 427.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.39215687)
+theme_override_font_sizes/font_size = 7
+text = "elryangomes@gmail.com"
+
+[node name="gabriel" type="Panel" parent="MarginContainer/nomes/email"]
+layout_mode = 2
+
+[node name="gabriel_label" type="Label" parent="MarginContainer/nomes/email/gabriel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 278.0
+offset_top = 48.0
+offset_right = 449.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.39215687)
+theme_override_font_sizes/font_size = 7
+text = "70contatogabrieltw@gmail.com"
+
+[node name="matheus" type="Panel" parent="MarginContainer/nomes/email"]
+layout_mode = 2
+
+[node name="matheus_label" type="Label" parent="MarginContainer/nomes/email/matheus"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 263.0
+offset_top = 65.0
+offset_right = 434.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.39215687)
+theme_override_font_sizes/font_size = 7
+text = "matheusrodrigues4037@gmail.com"
+
+[node name="referencias" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="titulo" type="VBoxContainer" parent="MarginContainer/referencias"]
+layout_mode = 2
+
+[node name="referencias" type="Panel" parent="MarginContainer/referencias/titulo"]
+layout_mode = 2
+
+[node name="referencias_label" type="Label" parent="MarginContainer/referencias/titulo/referencias"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 101.0
+offset_right = 113.0
+offset_bottom = 124.0
+theme_override_colors/font_color = Color(0, 0.6, 0.2784314, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.39215687)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "REFERENCIAS"
+
+[node name="bloco_referencias" type="HBoxContainer" parent="MarginContainer/referencias"]
+layout_mode = 2
+
+[node name="titulos" type="VBoxContainer" parent="MarginContainer/referencias/bloco_referencias"]
+layout_mode = 2
+
+[node name="sprites" type="Panel" parent="MarginContainer/referencias/bloco_referencias/titulos"]
+layout_mode = 2
+
+[node name="sprites_label" type="Label" parent="MarginContainer/referencias/bloco_referencias/titulos/sprites"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 124.0
+offset_right = 70.0
+offset_bottom = 147.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.39215687)
+theme_override_font_sizes/font_size = 11
+text = "sprites:"
+
+[node name="youtuber" type="Panel" parent="MarginContainer/referencias/bloco_referencias/titulos"]
+layout_mode = 2
+
+[node name="youtuber_label" type="Label" parent="MarginContainer/referencias/bloco_referencias/titulos/youtuber"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 137.0
+offset_right = 74.0
+offset_bottom = 160.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.39215687)
+theme_override_font_sizes/font_size = 11
+text = "youtubers:"
+
+[node name="sites" type="Panel" parent="MarginContainer/referencias/bloco_referencias/titulos"]
+layout_mode = 2
+
+[node name="sites_label" type="Label" parent="MarginContainer/referencias/bloco_referencias/titulos/sites"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 149.0
+offset_right = 75.0
+offset_bottom = 172.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.39215687)
+theme_override_font_sizes/font_size = 11
+text = "sites:"
+
+[node name="sons" type="Panel" parent="MarginContainer/referencias/bloco_referencias/titulos"]
+layout_mode = 2
+
+[node name="sons_label" type="Label" parent="MarginContainer/referencias/bloco_referencias/titulos/sons"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 160.0
+offset_right = 98.0
+offset_bottom = 183.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.39215687)
+theme_override_font_sizes/font_size = 11
+text = "efeitos sonoros:"
+
+[node name="conteudo" type="VBoxContainer" parent="MarginContainer/referencias/bloco_referencias"]
+layout_mode = 2
+
+[node name="sprites" type="Panel" parent="MarginContainer/referencias/bloco_referencias/conteudo"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/referencias/bloco_referencias/conteudo/sprites"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 128.0
+offset_right = 162.0
+offset_bottom = 151.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.39215687)
+theme_override_font_sizes/font_size = 7
+text = "https://grafxkid.itch.io/"
+
+[node name="youtuber" type="Panel" parent="MarginContainer/referencias/bloco_referencias/conteudo"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/referencias/bloco_referencias/conteudo/youtuber"]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 141.0
+offset_right = 169.0
+offset_bottom = 164.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.39215687)
+theme_override_font_sizes/font_size = 7
+text = "Rafael Forbeck | Game Dev"
+
+[node name="Label2" type="Label" parent="MarginContainer/referencias/bloco_referencias/conteudo/youtuber"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 140.0
+offset_right = 268.0
+offset_bottom = 163.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.39215687)
+theme_override_font_sizes/font_size = 7
+text = "-"
+
+[node name="Label3" type="Label" parent="MarginContainer/referencias/bloco_referencias/conteudo/youtuber"]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 141.0
+offset_right = 283.0
+offset_bottom = 164.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.39215687)
+theme_override_font_sizes/font_size = 7
+text = "Clécio Espindola GameDev"
+
+[node name="sites" type="Panel" parent="MarginContainer/referencias/bloco_referencias/conteudo"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/referencias/bloco_referencias/conteudo/sites"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 153.0
+offset_right = 196.0
+offset_bottom = 176.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.39215687)
+theme_override_font_sizes/font_size = 7
+text = "GODOT ENGINE     -     PIXILART     -     PISKEL"
+
+[node name="efeitos" type="Panel" parent="MarginContainer/referencias/bloco_referencias/conteudo"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/referencias/bloco_referencias/conteudo/efeitos"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 163.0
+offset_right = 251.0
+offset_bottom = 186.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.39215687)
+theme_override_font_sizes/font_size = 7
+text = "https://freesound.org/"
+
+[node name="button_sair" type="Button" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme = ExtResource("3_i66u5")
+theme_override_colors/font_color = Color(2.5990605e-06, 0.51246536, 0.1707522, 1)
+theme_override_colors/font_hover_color = Color(0.94475925, 0.9512703, 7.70092e-07, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Voltar
+"
+
+[node name="bg_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_55r6w")
+autoplay = true
+
+[connection signal="pressed" from="MarginContainer/button_sair" to="." method="_on_button_sair_pressed"]
